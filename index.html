@@ -17,12 +17,12 @@
             theme: {
                 extend: {
                     colors: {
-                        obsidian: '#161513',
-                        bone: '#EAE6DF',
-                        terracotta: '#B3583E',
-                        olive: '#4A5A48',
-                        ash: '#2A2825',
-                        muted: '#9E9A92'
+                        obsidian: '#0E0D0C',
+                        bone: '#FDFBF7',
+                        terracotta: '#C66548',
+                        olive: '#5A6A58',
+                        ash: '#3A3835',
+                        muted: '#C8C4BC'
                     },
                     fontFamily: {
                         fraunces: ['Fraunces', 'serif'],
@@ -42,11 +42,9 @@
         }
     </script>
 
-    <style>
+    <style type="text/tailwindcss">
         /* Base Configuration & Noise Texture */
         body {
-            background-color: theme('colors.obsidian');
-            color: theme('colors.bone');
             position: relative;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
@@ -96,7 +94,7 @@
         }
     </style>
 </head>
-<body class="font-bricolage selection:bg-terracotta selection:text-bone">
+<body class="bg-obsidian text-bone font-bricolage selection:bg-terracotta selection:text-bone">
 
     <!-- Hero Section -->
     <header class="min-h-[85vh] flex flex-col justify-end pb-24 md:pb-32 px-6 md:px-12 lg:px-24 max-w-screen-2xl mx-auto relative border-b border-ash">
@@ -114,7 +112,7 @@
             </p>
             
             <h1 class="reveal animate-breath-in delay-100 font-fraunces text-6xl md:text-8xl lg:text-9xl leading-[0.9] tracking-tight mb-10">
-                <span class="font-[200] block text-bone/80">Command the</span>
+                <span class="font-[200] block text-bone/90">Command the</span>
                 <span class="font-[800] italic block text-bone mt-2">breath.</span>
             </h1>
 
@@ -123,7 +121,7 @@
                     Breathwork and yoga rooted in Latin America. We design protocols for HR directors, leadership teams, and discerning individuals seeking absolute clarity and real results.
                 </p>
                 <div class="flex flex-col items-start gap-6 pt-2">
-                    <p class="text-sm uppercase tracking-widest text-muted/60 border-l border-terracotta pl-4">
+                    <p class="text-sm uppercase tracking-widest text-muted/80 border-l border-terracotta pl-4">
                         A decade of global practice.<br>Zero wellness fluff.
                     </p>
                     <a href="#services" class="group flex items-center gap-4 text-bone text-lg transition-colors hover:text-terracotta">
