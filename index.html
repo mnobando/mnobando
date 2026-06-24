@@ -1,11 +1,191 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Mi primer Hola Mundo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Damanna | Breathwork & Yoga for Leadership</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400&family=Fraunces:ital,opsz,wght@0,9..144,200;0,9..144,800;1,9..144,800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        obsidian: '#161513',
+                        bone: '#EAE6DF',
+                        terracotta: '#B3583E',
+                        olive: '#4A5A48',
+                        ash: '#2A2825',
+                        muted: '#9E9A92'
+                    },
+                    fontFamily: {
+                        fraunces: ['Fraunces', 'serif'],
+                        bricolage: ['Bricolage Grotesque', 'sans-serif'],
+                    },
+                    animation: {
+                        'breath-in': 'breathIn 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards',
+                    },
+                    keyframes: {
+                        breathIn: {
+                            '0%': { opacity: '0', transform: 'translateY(24px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Base Configuration & Noise Texture */
+        body {
+            background-color: theme('colors.obsidian');
+            color: theme('colors.bone');
+            position: relative;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* SVG Noise Overlay */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            pointer-events: none;
+            z-index: 50;
+            opacity: 0.04;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        /* Initial state for staggered animations */
+        .reveal {
+            opacity: 0;
+        }
+
+        .delay-100 { animation-delay: 200ms; }
+        .delay-200 { animation-delay: 600ms; }
+        .delay-300 { animation-delay: 1000ms; }
+        .delay-400 { animation-delay: 1400ms; }
+
+        /* Custom underline for interactive elements */
+        .hover-line {
+            position: relative;
+            text-decoration: none;
+        }
+        .hover-line::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 1px;
+            bottom: -2px;
+            left: 0;
+            background-color: theme('colors.terracotta');
+            transform-origin: bottom right;
+            transition: transform 0.4s cubic-bezier(0.86, 0, 0.07, 1);
+        }
+        .hover-line:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+    </style>
 </head>
-<body>
-    <h1>¡Hola Mundo!</h1>
-    <p>Esta es mi primera página web creada con HTML.</p>
+<body class="font-bricolage selection:bg-terracotta selection:text-bone">
+
+    <!-- Hero Section -->
+    <header class="min-h-[85vh] flex flex-col justify-end pb-24 md:pb-32 px-6 md:px-12 lg:px-24 max-w-screen-2xl mx-auto relative border-b border-ash">
+        <!-- Abstract Pre-Columbian inspired geometric accent -->
+        <div class="absolute top-0 right-0 w-64 h-64 md:w-96 md:h-96 opacity-10 pointer-events-none">
+            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M100 0 L50 50 L100 100 Z" fill="currentColor"/>
+                <path d="M0 100 L50 50 L100 100 Z" fill="currentColor"/>
+            </svg>
+        </div>
+
+        <div class="max-w-4xl z-10">
+            <p class="reveal animate-breath-in font-bricolage uppercase tracking-[0.2em] text-sm text-terracotta mb-8">
+                Damanna
+            </p>
+            
+            <h1 class="reveal animate-breath-in delay-100 font-fraunces text-6xl md:text-8xl lg:text-9xl leading-[0.9] tracking-tight mb-10">
+                <span class="font-[200] block text-bone/80">Command the</span>
+                <span class="font-[800] italic block text-bone mt-2">breath.</span>
+            </h1>
+
+            <div class="reveal animate-breath-in delay-200 grid md:grid-cols-2 gap-8 md:gap-16 items-start">
+                <p class="text-lg md:text-xl text-muted leading-relaxed max-w-md">
+                    Breathwork and yoga rooted in Latin America. We design protocols for HR directors, leadership teams, and discerning individuals seeking absolute clarity and real results.
+                </p>
+                <div class="flex flex-col items-start gap-6 pt-2">
+                    <p class="text-sm uppercase tracking-widest text-muted/60 border-l border-terracotta pl-4">
+                        A decade of global practice.<br>Zero wellness fluff.
+                    </p>
+                    <a href="#services" class="group flex items-center gap-4 text-bone text-lg transition-colors hover:text-terracotta">
+                        <span class="hover-line pb-1">Examine our practice</span>
+                        <svg class="w-5 h-5 transform transition-transform group-hover:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Services Block -->
+    <section id="services" class="py-24 md:py-32 px-6 md:px-12 lg:px-24 max-w-screen-2xl mx-auto">
+        <div class="grid lg:grid-cols-12 gap-16 lg:gap-8">
+            
+            <!-- Section Title -->
+            <div class="lg:col-span-4 reveal animate-breath-in delay-300">
+                <h2 class="font-fraunces font-[200] text-4xl md:text-5xl tracking-tight mb-6">The Work</h2>
+                <p class="text-muted max-w-xs leading-relaxed">
+                    Structured modalities designed to regulate the nervous system and optimize cognitive performance under pressure.
+                </p>
+            </div>
+
+            <!-- Services List -->
+            <div class="lg:col-span-8 flex flex-col gap-12 border-t border-ash pt-8 reveal animate-breath-in delay-400">
+                
+                <!-- Service 1 -->
+                <div class="group grid md:grid-cols-3 gap-6 md:gap-12 items-start pb-12 border-b border-ash transition-colors hover:border-terracotta/50">
+                    <h3 class="font-fraunces font-[800] text-2xl text-bone md:col-span-1">Corporate Immersions</h3>
+                    <div class="md:col-span-2">
+                        <p class="text-muted text-lg leading-relaxed mb-4">
+                            Tailored programs for high-functioning organizations. We partner with the Colombian government and leadership teams across the US to implement breathwork as a functional tool for resilience and focus.
+                        </p>
+                        <span class="text-sm text-terracotta uppercase tracking-widest font-medium">B2B Integration</span>
+                    </div>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="group grid md:grid-cols-3 gap-6 md:gap-12 items-start pb-12 border-b border-ash transition-colors hover:border-terracotta/50">
+                    <h3 class="font-fraunces font-[800] text-2xl text-bone md:col-span-1">Retreats & Residencies</h3>
+                    <div class="md:col-span-2">
+                        <p class="text-muted text-lg leading-relaxed mb-4">
+                            Immersive, on-site execution in curated environments. Our methodologies are actively featured at Las Qolqas Lodge, recognized in Time Magazine's World's Greatest Places 2025.
+                        </p>
+                        <span class="text-sm text-terracotta uppercase tracking-widest font-medium">Global Locations</span>
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="group grid md:grid-cols-3 gap-6 md:gap-12 items-start">
+                    <h3 class="font-fraunces font-[800] text-2xl text-bone md:col-span-1">Private Practice</h3>
+                    <div class="md:col-span-2">
+                        <p class="text-muted text-lg leading-relaxed mb-4">
+                            Bespoke breathwork and movement protocols engineered for discerning individuals. We map your specific physiological responses to create a sustainable, high-impact daily practice.
+                        </p>
+                        <span class="text-sm text-terracotta uppercase tracking-widest font-medium">1:1 Protocol</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
 </body>
 </html>
