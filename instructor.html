@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instructor | Damanna</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400&family=Fraunces:ital,opsz,wght@0,9..144,200;0,9..144,800;1,9..144,800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        obsidian: '#0E0D0C',
+                        bone: '#FDFBF7',
+                        terracotta: '#C66548',
+                        olive: '#5A6A58',
+                        ash: '#3A3835',
+                        muted: '#C8C4BC'
+                    },
+                    fontFamily: {
+                        fraunces: ['Fraunces', 'serif'],
+                        bricolage: ['Bricolage Grotesque', 'sans-serif'],
+                    },
+                    animation: {
+                        'breath-in': 'breathIn 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards',
+                    },
+                    keyframes: {
+                        breathIn: {
+                            '0%': { opacity: '0', transform: 'translateY(24px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style type="text/tailwindcss">
+        /* Base Configuration & Noise Texture */
+        body {
+            position: relative;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* SVG Noise Overlay */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            pointer-events: none;
+            z-index: 50;
+            opacity: 0.04;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        .reveal { opacity: 0; }
+        .delay-100 { animation-delay: 200ms; }
+        .delay-200 { animation-delay: 600ms; }
+        .delay-300 { animation-delay: 1000ms; }
+
+        .hover-line {
+            position: relative;
+            text-decoration: none;
+        }
+        .hover-line::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 1px;
+            bottom: -2px;
+            left: 0;
+            background-color: theme('colors.terracotta');
+            transform-origin: bottom right;
+            transition: transform 0.4s cubic-bezier(0.86, 0, 0.07, 1);
+        }
+        .hover-line:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+    </style>
+</head>
+<body class="bg-obsidian text-bone font-bricolage selection:bg-terracotta selection:text-bone">
+
+    <nav class="absolute top-0 w-full z-40 p-6 md:px-12 lg:px-24 max-w-screen-2xl mx-auto flex justify-between items-center">
+        <a href="index.html" class="font-bricolage uppercase tracking-[0.2em] text-sm text-bone hover:text-terracotta transition-colors">
+            &larr; Back to Home
+        </a>
+    </nav>
+
+    <main class="min-h-screen pt-32 pb-24 md:pt-40 md:pb-32 px-6 md:px-12 lg:px-24 max-w-screen-2xl mx-auto relative">
+        <div class="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+            
+            <div class="reveal animate-breath-in">
+                <img src="retrato 2.jpg" alt="Instructor Portrait" class="w-full h-auto object-cover rounded-sm grayscale hover:grayscale-0 transition-all duration-700">
+            </div>
+
+            <div class="reveal animate-breath-in delay-100">
+                <p class="font-bricolage uppercase tracking-[0.2em] text-sm text-terracotta mb-6">
+                    The Instructor
+                </p>
+                <h1 class="font-fraunces font-[200] text-5xl md:text-6xl tracking-tight mb-8">
+                    My Story
+                </h1>
+                
+                <div class="text-muted text-lg leading-relaxed flex flex-col gap-6">
+                    <p>
+                        I found breathwork out of necessity. After years in high-pressure environments, the physical and mental toll demanded a more sustainable approach to leadership and performance. I didn't want more wellness fluff; I wanted functional tools.
+                    </p>
+                    <p>
+                        Drawing from a decade of global practice and deeply rooted in Latin American traditions, my protocol is designed for those who command the breath to command their state. It's about regulating the nervous system to optimize cognitive performance under pressure.
+                    </p>
+                    <p>
+                        Whether working with HR directors, leadership teams, or individual practitioners, my focus remains the same: absolute clarity and real, measurable results. We engineer resilience so you can operate at your highest potential.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>
