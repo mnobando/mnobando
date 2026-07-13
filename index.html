@@ -5,6 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Damanna: Yoga & Breathwork for Teams</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="256x256" href="logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -110,12 +112,22 @@
     }
 
     nav .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
       font-family: 'Jost', sans-serif;
       font-size: 20px;
       letter-spacing: 0.22em;
       font-weight: 300;
       color: #fff;
       transition: color .35s ease;
+    }
+
+    nav .logo img {
+      height: 32px;
+      width: 32px;
+      object-fit: contain;
+      border-radius: 4px;
     }
 
     nav.nav-dark .logo {
@@ -767,7 +779,10 @@
 <body>
 
   <nav>
-    <div class="logo">DAMANNA</div>
+    <div class="logo">
+      <img src="logo.png" alt="Damanna Logo">
+      <span>DAMANNA</span>
+    </div>
     <ul>
       <li><a href="#work">Work</a></li>
       <li><a href="#story">About</a></li>
@@ -1035,8 +1050,7 @@
       <div class="section-content contact-cta">
         <p class="kicker">Get in touch</p>
         <h2>Bring your team back to their breath.</h2>
-        <p class="lede">One conversation is enough to know if this is right for your team. No pitch decks, just a
-          session.</p>
+        <p class="lede">One conversation is enough to know if this is right for your team.</p>
         <div class="contact-links">
           <a class="primary" href="mailto:Mati@damanna.co">Mati@damanna.co</a>
           <a href="tel:+5491162516026">+54 9 11 6251 6026</a>
@@ -1048,7 +1062,6 @@
 
   <footer>
     <div style="font-family:'Jost', sans-serif; letter-spacing:0.14em; font-weight:300;">DAMANNA Breathwork</div>
-    <div>© 2026, by Mati Obando</div>
     <div style="margin-top:8px; font-size:0.7rem; opacity:0.45;">Powered by <a href="https://simpleauto.tech" target="_blank" rel="noopener" style="color:inherit; text-decoration:underline;">simpleauto.tech</a></div>
   </footer>
 
